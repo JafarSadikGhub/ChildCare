@@ -50,26 +50,33 @@
         to {top: 0; opacity: 0;}
       }
     </style>
-    <script src="JS/script.js"></script>
+    <!--<script src="JS/scriptVal.js"></script>-->
+
   </head>
   <body>
     <div class="signup">
-      <form name="RegForm" action="signup_cen.php" onsubmit="return validation()" method="POST">
+      <form name="RegFormCen" action="signup_cen.php" onsubmit="return validateFormRegCenter();" method="POST">
         <h2 style="color: #fff;">Sign Up</h2>
-        <input type="text" name="cenname" placeholder=" Center-Name"><br><br>
-        <input type="text" name="name" placeholder=" Owner-Name"><br><br>
+        <input type="text" name="cenname" placeholder=" Center-Name"><br>
+        <span class="error"><p id="cenname_error"></p></span>
+        <input type="text" name="name" placeholder=" Owner-Name"><br>
+        <span class="error"><p id="name_error"></p></span>
         <input type="text" name="username" value="" placeholder=" Chose a username">
-        <input type="text" name="email" placeholder=" Email address"><br><br>
-        <input type="text" name="address" placeholder=" Address"><br><br>
-        <input type="password" name="password" placeholder=" Password"><br><br>
-        <input type="password" name="pass" placeholder=" Confirm Password"><br><br>
-        <button type="submit" value="submit">Submit</button><br><br>
-          <div id="msg">Congratulations You Sign Up successfully!!</div>
-
-          Already have account?<a href="login_cen.html" style="text-decoration: none; font-family: 'Play', sans-serif; color: yellow;">&nbsp;Log In</a>
+        <span class="error"><p id="username_error"></p></span>
+        <input type="text" name="email" placeholder=" Email address"><br>
+        <span class="error"><p id="email_error"></p></span>
+        <input type="text" name="address" placeholder=" Address"><br>
+        <span class="error"><p id="address_error"></p></span>
+        <input type="password" name="password" placeholder=" Password"><br>
+        <span class="error"><p id="password_error"></p></span>
+        <input type="password" name="confirmPass" placeholder=" Confirm Password"><br>
+        <span class="error"><p id="password_error"></p></span>
+        <button type="submit" value="submit">Submit</button><br>
+        Already have account?<a href="login_cen.html" style="text-decoration: none; font-family: 'Play', sans-serif; color: yellow;">&nbsp;Log In</a>
       </form>
 
     </div>
 
   </body>
 </html>
+<script type="scriptVal.js"></script>
