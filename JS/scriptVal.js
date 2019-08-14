@@ -52,7 +52,7 @@ function validateFormRegCenter()
   if(password !=confirmPass)
   {
     error++;
-    document.getElementById(password_error).innerHTML ="Password doesn't match to the previous one!";
+    document.getElementById('password_error').innerHTML ="Password doesn't match to the previous one!";
   }
   if(error>0)
   {
