@@ -7,6 +7,14 @@
     $email=$_POST["email"];
     $address=$_POST["address"];
     $password=$_POST["password"];
+    $flat=$_POST["flat"];
+    $house=$_POST["house"];
+    $road=$_POST["road"];
+    $area=$_POST["area"];
+    $city=$_POST["city"];
+    $zip=$_POST["zip"];
+    $phone=$_POST["phone"];
+
 //$param_password = password_hash($password, PASSWORD_DEFAULT);
 if( !empty($cenname) || !empty($name) || !empty($username) || !empty($email) || !empty($address) || !empty($password))
 {

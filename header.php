@@ -22,6 +22,14 @@
     		</button>
     		<div class="collapse navbar-collapse" id="navbarResponsive">
     			<ul class="navbar-nav ml-auto">
+						<li>
+							<div class="search-container">
+								<form>
+									<input type="text" placeholder="Search.." name="search">
+									<button type="submit"><i class="fa fa-search"></i></button>
+								</form>
+							</div>
+						</li>
     				<li class="nav-item active">
     					<a class="nav-link" href="index.html">HOME</a>
     				</li>
@@ -49,6 +57,7 @@
         			</div>
     				</div>
     				</li>
+
     			</ul>
     		</div>
     	</div>
