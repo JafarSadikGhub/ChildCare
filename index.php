@@ -1,8 +1,4 @@
-<?php
 
-setcookie("username" , "abc", time()- 86400);
-$_SESSION['username'] ="12";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +19,12 @@ $_SESSION['username'] ="12";
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 	<div class="container-fluid">
     <img src="images/logo.png" ALT="" WIDTH=80 HEIGHT=80>
+		 <div class="search-container">
+			<form>
+				<input type="text" placeholder="Search.." name="search">
+				<button type="submit" value=">>"><i class="fa fa-search"></i></button>
+			</form>
+		</div>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 			<span class="navbar-toggler-icon"></span>
 		</button>

@@ -63,7 +63,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 <br>
 
 
-  <form class="form-horizontal" action="editprofile_cen.php" method="POST"  id="reg_form">
+  <form class="form-horizontal" action="editprofile_cen.php" method="POST"  id="reg_form" enctype="multipart/form-data">
     <fieldset>
 
       <!-- Form Name -->
@@ -75,7 +75,7 @@ and is wrapped around the whole page content, except for the footer in this exam
         <label class="col-md-4 control-label">Flat No.</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="flat" placeholder="Chose a username" class="form-control"  type="text">
+            <input  name="flat" placeholder="flat no" class="form-control"  type="text">
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ and is wrapped around the whole page content, except for the footer in this exam
         <label class="col-md-4 control-label">House No.</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="house" placeholder="First Name" class="form-control"  type="text">
+            <input  name="house" placeholder="house no." class="form-control"  type="text">
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ and is wrapped around the whole page content, except for the footer in this exam
         <label class="col-md-4 control-label" >Road No.</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input name="road" placeholder="Last Name" class="form-control"  type="text">
+            <input name="road" placeholder="road no." class="form-control"  type="text">
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@ and is wrapped around the whole page content, except for the footer in this exam
         <label class="col-md-4 control-label">Area</label>
         <div class="col-md-6  inputGroupContainer">
           <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-            <input name="area" placeholder="Address" class="form-control" type="text">
+            <input name="area" placeholder="area" class="form-control" type="text">
           </div>
         </div>
       </div>
@@ -164,6 +164,16 @@ and is wrapped around the whole page content, except for the footer in this exam
           </div>
         </div>
       </div>
+
+      <div class="profile">
+        <label class="col-md-4 control-label">Upload Image</label>
+        <div class="col-md-6  inputGroupContainer">
+          <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+            <input type="file" name="profile" placeholder="Upload an Image" class="form-control">
+          </div>
+        </div>
+      </div>
+
 
 
       <!-- COUNTRY SELECTION -->

@@ -2,14 +2,16 @@
     /*error_reporting(E_ALL);
     ini_set('display_errors', 1);*/
     //$cenname=$_POST["cenname"];
+
+
     $firstname=$_POST["firstname"];
     $lastname=$_POST["lastname"];
-    $username=$_POST["username"];
+    $GuardianUsername=$_POST["GuardianUsername"];
     $email=$_POST["email"];
     //$address=$_POST["address"];
     $password=$_POST["password"];
 //$param_password = password_hash($password, PASSWORD_DEFAULT);
-if( !empty($firstname) || !empty($lastname) || !empty($username) || !empty($email) || !empty($password))
+if( !empty($firstname) || !empty($lastname) || !empty($GuardianUsername) || !empty($email) || !empty($password))
 {
     $host = "localhost";
     $dbUsername = "root";
@@ -23,9 +25,9 @@ if( !empty($firstname) || !empty($lastname) || !empty($username) || !empty($emai
     else
     {
     	//$SELECT = "SELECT email from user_info where email = ? Limit 1";
-        $SELECT= "SELECT username from guardian where username = ? Limit 1";
+        $SELECT= "SELECT GuardianUsername from guardian where GuardianUsername = ? Limit 1";
         $password = password_hash($password, PASSWORD_DEFAULT);
-       	$INSERT = "INSERT into guardian (firstname, lastname, username, email, password) values(?, ?, ?, ?, ?)";
+       	$INSERT = "INSERT into guardian (firstname, lastname, GuardianUsername, email, password) values(?, ?, ?, ?, ?)";
     	/*$stmt = $conn->prepare($SELECT);
     	$stmt->bind_param("s", $email);
     	$stmt->execute();
@@ -33,18 +35,18 @@ if( !empty($firstname) || !empty($lastname) || !empty($username) || !empty($emai
     	$stmt->store_result();
     	$rnum = $stmt->num_rows;*/
         $stmt = $conn->prepare($SELECT);
-        $stmt->bind_param("s", $username);
+        $stmt->bind_param("s", $GuardianUsername);
         $stmt->execute();
-        $stmt->bind_result($username);
+        $stmt->bind_result($GuardianUsername);
         $stmt->store_result();
         $rnum = $stmt->num_rows;
     	if($rnum == 0)
     	{
     		$stmt->close();
     		$stmt = $conn->prepare($INSERT);
-    		$stmt->bind_param("sssss", $firstname, $lastname, $username, $email, $password);
+    		$stmt->bind_param("sssss", $firstname, $lastname, $GuardianUsername, $email, $password);
 
-           // $param_username = $username;
+           // $param_GuardianUsername = $GuardianUsername;
 
     		$stmt-> execute();
     		header('Location: login_gur.php');
@@ -52,7 +54,7 @@ if( !empty($firstname) || !empty($lastname) || !empty($username) || !empty($emai
     	}
     	else
     	{
-    		echo "Somebody already registered using this username. Please try a new username";
+    		echo "Somebody already registered using this GuardianUsername. Please try a new GuardianUsername";
     	}
     	$stmt->close();
     	$conn->close();

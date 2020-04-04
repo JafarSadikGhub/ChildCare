@@ -1,6 +1,7 @@
 <?php
         session_start();
         require_once("connection.php");
+        require_once("header.php");
         if(!isset($_SESSION['username']))
         {
                 header("location: login_cen.php");
@@ -16,7 +17,8 @@
         $city='';
         $zip='';
         $phone='';
-
+        //$profile='';
+        //$lastId= $conn->insert_id;
         //$email=$_SESSION['email'];
         $getquery=mysqli_query($conn, "SELECT * FROM center WHERE username = '$name'");
         while($rows=mysqli_fetch_assoc($getquery))
@@ -31,11 +33,14 @@
         $city=$rows['city'];
         $zip=$rows['zip'];
         $phone=$rows['phone'];
+        //$profile=$_FILES['profile']['tmp_name'];
 
 
 
         }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -55,17 +60,36 @@
         <div class="col-md-3">
           <div class="profile-sidebar">
             <div class="profile-user-pic">
-              <img src="http://guarddome.com/assets/images/profile-img.jpg" alt="" class="img-responsive img-circle">
+              <?php
+                  $host ="localhost";
+                  $uname = "root";
+                  $pwd = "";
+                  $db_name = "childcare";
+                  $id = $_SESSION['id'];
+                  $file_path = 'images_center/';
+                  $result = mysqli_connect($host,$uname,$pwd) or die("Could not connect to database." .mysqli_error());
+                  mysqli_select_db($result,$db_name) or die("Could not select the databse." .mysqli_error());
+                  $image_query = mysqli_query($result,"select profile from center where id=$id");
+                  while($rows = mysqli_fetch_array($image_query))
+                  {
+                      $img_name = $rows['profile'];
+                      //$img_src = $rows['img_path'];
+               ?>
+               <img src="images_center/<?php echo $img_name; ?>" class="img-responsive img-circle" /><br />
+
             </div>
+            <?php
+            }
+        ?>
             <div class="profile-user-title">
               <div class="profile-user-name">
-                <?php echo $ownername; ?>
+                <?php echo $ownername;?>
               </div>
 
             </div>
             <div class="profile-user-buttons">
               <button class="btn btn-success btn-sm"><a href="editprofile_cen.html">Edit Profile</a></button>
-              <button class="btn btn-danger btn-sm">Check Info</button>
+              <button class="btn btn-danger btn-sm"><a href="upImage.php">Upload an Image</button>
               <button class="btn btn-danger btn-sm"><a href="logout.php">Logout</a></button>
             </div>
             <div class="profile-user-menu">
@@ -73,7 +97,7 @@
                 <li class="active"><a href="#"><i class="glyphicon glyphicon-home"></i> Overview</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-user"></i> Account Status</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-ok"></i> Tasks</a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-flag"></i> Help</a></li>
+                <li><a href="chatbot/chatbot.php"><i class="glyphicon glyphicon-flag"></i> Help</a></li>
               </ul>
             </div>
           </div>

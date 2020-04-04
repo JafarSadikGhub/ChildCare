@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Faces|Signup_cen</title>
     <link href="css/signup.css" rel="stylesheet" type="text/css">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
     <style media>
 
@@ -53,9 +54,10 @@
     <!--<script src="JS/scriptVal.js"></script>-->
 
   </head>
+
   <body>
     <div class="signup">
-      <form name="RegFormCen" action="signup_cen.php" onsubmit="return validateFormRegCenter();" method="POST">
+      <form name="RegFormCen" action="signup_cen.php" onsubmit="return validateFormRegCenter();" method="POST" enctype="multipart/form-data">
         <h2 style="color: #fff;">Sign Up</h2>
         <input type="text" name="cenname" placeholder=" Center-Name"><br>
         <span class="error"><p id="cenname_error"></p></span>
@@ -71,6 +73,7 @@
         <span class="error"><p id="password_error"></p></span>
         <input type="password" name="confirmPass" placeholder=" Confirm Password"><br>
         <span class="error"><p id="password_error"></p></span>
+      <!--  <input type="file" name="profile" placeholder="Upload An Image"><br>-->
         <button type="submit" value="submit">Submit</button><br>
         Already have account?<a href="login_cen.html" style="text-decoration: none; font-family: 'Play', sans-serif; color: yellow;">&nbsp;Log In</a>
       </form>

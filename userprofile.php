@@ -1,11 +1,12 @@
 <?php
         session_start();
+        require_once("header.php");
         if(!isset($_SESSION['username']))
         {
                 header("location: login_gur.php");
         }
         $name=$_SESSION['username'];
-        
+
         //$email=$_SESSION['email'];
 ?>
 <!DOCTYPE html>
@@ -46,7 +47,7 @@
                 <li class="active"><a href="#"><i class="glyphicon glyphicon-home"></i> Overview</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-user"></i> Account Status</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-ok"></i> Tasks</a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-flag"></i> Help</a></li>
+                <li><a href="chatbot/chatbot.php"><i class="glyphicon glyphicon-flag"></i> Help</a></li>
               </ul>
             </div>
           </div>

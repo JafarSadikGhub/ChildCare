@@ -1,6 +1,7 @@
 <?php
     /*error_reporting(E_ALL);
     ini_set('display_errors', 1);*/
+  
     $cenname=$_POST["cenname"];
     $name=$_POST["name"];
     $username=$_POST["username"];
@@ -30,9 +31,13 @@ if( !empty($cenname) || !empty($name) || !empty($username) || !empty($email) || 
     else
     {
     	//$SELECT = "SELECT email from user_info where email = ? Limit 1";
+        $lastId = $conn->insert_id;
+        $picName = "image/".$lastId.$FILES['profile']['name'];
+        move_uploaded_file($_FILES['profile']['tmp_name'], $picName);
         $SELECT= "SELECT username from center where username = ? Limit 1";
         $password = password_hash($password, PASSWORD_DEFAULT);
        	$INSERT = "INSERT into center (cenname, name, username, email, address, password) values(?, ?, ?, ?, ?, ?)";
+      //  $sqlUpdate= "UPDATE center SET profile='$picName' WHERE id='$conn->insert_id'";
     	/*$stmt = $conn->prepare($SELECT);
     	$stmt->bind_param("s", $email);
     	$stmt->execute();
@@ -54,6 +59,7 @@ if( !empty($cenname) || !empty($name) || !empty($username) || !empty($email) || 
            // $param_username = $username;
 
     		$stmt-> execute();
+
     		header('Location: login_cen.php');
     		//echo "New Record inserted successfully";
     	}

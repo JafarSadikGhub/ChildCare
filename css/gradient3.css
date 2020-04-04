@@ -1,0 +1,23 @@
+body{
+  background: -webkit-linear-gradient(to right, #E5E5BE, #003973);  /* Chrome 10-25, Safari 5.1-6 */
+  background: #003973;  /* fallback for old browsers */
+  background: linear-gradient(to right, #E5E5BE, #003973); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+button[type=submit]
+{
+    border: none;
+    width: 150px;
+    background: white;
+    color: #000;
+    font-size: 16px;
+    line-height: 15px;
+    padding: 5px 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+button[type=submit]:hover
+{
+    color: #fff;
+    background-color: black;
+}
